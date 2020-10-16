@@ -7,3 +7,4 @@ class Tablero:
         for fila in range(FILAS):
             for col in range(fila % 2, FILAS , 2):
                 pygame.draw.rect(win,BLANCO,(fila*BLOQUE_SIZE,col*BLOQUE_SIZE,BLOQUE_SIZE,BLOQUE_SIZE))
+                ## BRANC PANCHUPALO JAJA DON WEA
