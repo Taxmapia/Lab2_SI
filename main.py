@@ -7,6 +7,8 @@ FPS = 60
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('El Mejor Othello Del Mundo')
 
+f_list = pygame.sprite.Group()
+
 def main():
     run = True
     clock = pygame.time.Clock()
