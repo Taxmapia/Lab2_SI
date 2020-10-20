@@ -1,8 +1,7 @@
 import Constantes 
 import pygame
 
-FPS = 30
-
+FPS = 60
 
 
 WIN = pygame.display.set_mode((Constantes.WIDTH, Constantes.HEIGHT))
@@ -16,14 +15,14 @@ class Ficha(pygame.sprite.Sprite):
         super().__init__()
         if color == Constantes.R:
             self.color = Constantes.R
-            self.ficha_roja = Constantes.F_R.convert()
-            self.ficha_roja.set_colorkey(Constantes.BLANCO)
-            self.rect = self.ficha_rojo.get_rect()
+            self.image = Constantes.F_R
+            self.image.set_colorkey(Constantes.BLANCO)
+            self.rect = self.image.get_rect()
         else:
             self.color = Constantes.B
-            self.ficha_azul =  Constantes.F_A.convert()
-            self.ficha_azul.set_colorkey(Constantes.BLANCO)
-            self.rect = self.ficha_azul.get_rect()
+            self.image =  Constantes.F_A
+            self.image.set_colorkey(Constantes.BLANCO)
+            self.rect = self.image.get_rect()
         self.x , self.y = 0 , 0
         
         
@@ -48,19 +47,31 @@ def Llenar_Tablero():
             casilla.rect.x = (fila * Constantes.BLOQUE_SIZE)
             casilla.rect.y = (col * Constantes.BLOQUE_SIZE)
             tab_list.add(casilla)
+            if (fila == 2 and col == 2) or (fila == 3 and col == 3):
+                ficha = Ficha(Constantes.R)
+                ficha.rect.x = (fila * Constantes.BLOQUE_SIZE)
+                ficha.rect.y = (col * Constantes.BLOQUE_SIZE)
+                f_list.add(ficha)
+            elif (fila == 3 and col == 2) or (fila == 2 and col == 3):
+                ficha = Ficha(Constantes.B)
+                ficha.rect.x = (fila * Constantes.BLOQUE_SIZE)
+                ficha.rect.y = (col * Constantes.BLOQUE_SIZE)
+                f_list.add(ficha)
+
 def main():
     print(Constantes.BLOQUE_SIZE)
     run = True
     clock = pygame.time.Clock()
+    Llenar_Tablero()
+    tab_list.draw(WIN)
     while run:
         clock.tick(FPS)
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-        Llenar_Tablero()
-        tab_list.draw(WIN)
-
+        
+        f_list.draw(WIN)
         pygame.display.update()
     pygame.quit()
 
