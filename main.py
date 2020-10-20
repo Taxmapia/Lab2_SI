@@ -73,6 +73,7 @@ def main():
         
         f_list.draw(WIN)
         pygame.display.update()
+        print("Hola")
     pygame.quit()
 
 
