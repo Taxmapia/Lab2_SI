@@ -4,9 +4,9 @@ WIDTH , HEIGHT = 800 , 800
 
 FILAS, COLUMNAS = 6, 6
 
-CASILLA = pygame.image.load(os.path.join("Img","casilla.png"))
-F_A = pygame.image.load(os.path.join("Img","Ficha_Azul.png"))
-F_R = pygame.image.load(os.path.join("Img","Ficha_Roja.png"))
+CASILLA = pygame.image.load(os.path.join("imagenes","casilla.png"))
+F_A = pygame.image.load(os.path.join("imagenes","Ficha_Azul.png"))
+F_R = pygame.image.load(os.path.join("imagenes","Ficha_Roja.png"))
 
 BLOQUE_SIZE = WIDTH//COLUMNAS
 
